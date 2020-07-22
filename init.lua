@@ -85,6 +85,9 @@ function bandage(bandager, player)
 				minetest.chat_send_player(bandagerName, playerName.." is above max bandaging health.")
 			end
 			return
+		elseif player:get_hp() < 1 then
+			minetest.chat_send_player(bandagerName, playerName.." is dead.")
+			return
 		end
 		bandagers[bandagerName] = {}
 		bandagers[bandagerName].bandagerpos = bandager:get_pos()
